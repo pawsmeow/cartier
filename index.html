@@ -438,29 +438,73 @@
         margin-top: 20px; /* отступ между карточками и кнопкой */
     }
 }
+/* ===== Компактный мобильный прайс-лист ===== */
+@media (max-width: 768px) {
+    .price-grid {
+        grid-template-columns: 1fr; /* одна колонка */
+        gap: 8px; /* расстояние между карточками */
+    }
+
+    .price-card {
+        padding: 8px 10px;
+        gap: 4px;             /* расстояние между иконкой и текстом */
+        border: none;         
+        box-shadow: none;      
+        background: transparent; 
+    }
+
+    .price-icon {
+        font-size: 0.7rem;   /* маленькая иконка */
+    }
+    .price-amount {
+        font-size: 0.9rem;   /* компактная цена */
+    }
+    .price-desc {
+        font-size: 0.75rem;  /* компактное описание */
+    }
+
+    .extra-service {
+        flex-direction: row;
+        justify-content: flex-start;
+        text-align: left;
+        padding: 6px 8px;
+    }
+    .extra-service span {
+        margin-left: 4px;
+        font-size: 0.75rem;
+    }
+
+    .modal-cta {
+        margin-top: 15px; /* отступ между карточками и кнопкой */
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
 
 @media (max-width: 480px) {
     .price-grid {
-        gap: 10px;
+        gap: 6px;
     }
     .price-card {
-        padding: 10px 12px;
-        gap: 5px;
+        padding: 6px 8px;
+        gap: 3px;
     }
     .price-icon {
-        font-size: 0.8rem;
+        font-size: 0.65rem;
     }
     .price-amount {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
     }
     .price-desc {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     .extra-service span {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     .modal-cta {
-        margin-top: 18px;
+        margin-top: 12px;
+        padding: 8px 12px;
+        font-size: 0.85rem;
     }
 }
 
@@ -614,7 +658,7 @@
     <header class="hero-block">
         <div class="hero-content">
             <h1 class="hero__title">CARTIER</h1>
-            <p class="hero__subtitle"> • Основной лайн — EXP • Профессиональный бустер </p>
+            <p class="hero__subtitle"> • Профессиональный бустер •</p>
             
                 <img class="hero__avatar" src="avatar.jpg" alt="Nemo Avatar">
             
@@ -644,8 +688,7 @@
         <div class="grid">
             <a href="https://www.twitch.tv/cartiermlbb" target="_blank" class="chip chip-link">Twitch</a>
             <a href="https://t.me/+DN2ukkiNQQc0Yzgy" target="_blank" class="chip chip-link">Telegram-чат</a>
-            <a href="https://www.tiktok.com/@cartiermlbb1" target="_blank" class="chip chip-link">TikTok (@cartiermlbb1)</a>
-            <a href="https://www.tiktok.com/@cartiermlbb0" target="_blank" class="chip chip-link">TikTok (запас)</a>
+            <a href="https://www.tiktok.com/@cartiermlbb.bust" target="_blank" class="chip chip-link">TikTok</a>
         </div>
     </section>
 
@@ -739,7 +782,6 @@
 </div>
 
 
-    <a href="https://t.me/cccaaartier" target="_blank" class="cta-btn cta-btn--primary modal-cta">Начать оформление</a>
   </div>
 </div>
 
