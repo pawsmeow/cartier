@@ -421,21 +421,7 @@
 
 /* ===== Адаптация price-grid на мобильных ===== */
 @media (max-width: 768px) {
-    .price-grid {
-        display: flex;           /* делаем горизонтальный флекс-контейнер */
-        flex-wrap: nowrap;       /* не переносим карточки */
-        overflow-x: auto;        /* включаем горизонтальную прокрутку */
-        gap: 10px;               /* расстояние между карточками */
-        padding-bottom: 10px;    /* небольшой отступ снизу */
-    }
-
-    .price-card {
-        flex: 0 0 auto;          /* фиксированная ширина карточки */
-        width: 140px;            /* ширина каждой карточки */
-        padding: 10px 12px;      
-        font-size: 0.85rem;      
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
+    
 
     .price-info {
         font-size: 0.8rem;
@@ -450,14 +436,43 @@
     }
 
     /* Дополнительные услуги в одну линию с прокруткой */
+    .price-grid::-webkit-scrollbar {
+        height: 6px; /* Высота полосы прокрутки */
+    }
+    .price-grid::-webkit-scrollbar-thumb {
+        background: var(--color-accent-gold); /* Цвет ползунка */
+        border-radius: 10px;
+    }
+    .price-grid::-webkit-scrollbar-track {
+        background: var(--color-card); /* Цвет трека */
+    }
+    .price-card {
+        /* ... существующие стили ... */
+        width: 150px; /* Немного увеличена ширина, чтобы вместить текст */
+        /* ... */
+    }
     .extra-service {
-        flex-direction: column;
-        align-items: center;
+        /* ... существующие стили ... */
+        flex-direction: row; /* Возвращаем в одну строку для чипов */
+        gap: 5px; /* Уменьшаем внутренний отступ */
+        white-space: nowrap; /* Важно для горизонтальной прокрутки */
     }
     .order-boost-card {
-        padding: 20px 30px;
+    /* ... существующие стили ... */
+    /* Уменьшил padding и размер шрифта */
+    padding: 20px 35px; 
+    font-size: 1.1rem;
+    display: inline-block; /* Важно, чтобы не растягивался на всю ширину */
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    /* ... другие адаптивные стили ... */
+    .order-boost-card {
+        padding: 15px 25px; /* Ещё меньше на узких экранах */
         font-size: 1rem;
     }
+}
 }
 
 
