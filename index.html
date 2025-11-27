@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CARTIER | Профессиональный Буст (Элегантный Стиль)</title>
+    <title>CARTIER</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         /*
@@ -810,20 +810,29 @@
 
             // Логика модального окна
             const modal = document.getElementById('boost-modal');
-            const btnOrder = document.getElementById('order-boost-btn');
-            const btnOrderCard = document.getElementById('open-modal-card');
-            const btnClose = document.querySelector('.modal__close');
+    const btnOrder = document.getElementById('order-boost-btn');
+    const btnOrderCard = document.getElementById('open-modal-card');
+    const btnClose = document.querySelector('.modal__close');
 
-            const openModal = () => { modal.style.display = 'flex'; };
-            const closeModal = () => { modal.style.display = 'none'; };
+    const openModal = () => {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // блокируем скролл страницы
+    };
 
-            btnOrder.addEventListener('click', openModal);
-            btnOrderCard.addEventListener('click', openModal);
-            btnClose.addEventListener('click', closeModal);
+    const closeModal = () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; // возвращаем скролл
+    };
 
-            window.addEventListener('click', (event) => {
-                if (event.target === modal) { closeModal(); }
-            });
+    btnOrder.addEventListener('click', openModal);
+    btnOrderCard.addEventListener('click', openModal);
+    btnClose.addEventListener('click', closeModal);
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
         });
     </script>
 </body>
