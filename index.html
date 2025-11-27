@@ -643,6 +643,39 @@
     margin-bottom: 30px;
 }
 
+@media (max-width: 768px) {
+    /* ... (предыдущие стили, не менялись) ... */
+    
+    /* Адаптация price-grid на мобильных */
+    .price-grid {
+        display: flex; 		 
+        flex-wrap: nowrap; 		 
+        overflow-x: auto; 		 
+        gap: 10px; 		 
+        padding-bottom: 10px; 		 
+    }
+    
+    /* *** НОВОЕ ИЗМЕНЕНИЕ ДЛЯ ЦЕНТРИРОВАНИЯ *** */
+    /* Трюк с auto-margins, чтобы прокручиваемый контент центрировался */
+    .price-grid > .price-card:first-child {
+        margin-left: auto;
+    }
+    
+    .price-grid > .price-card:last-child {
+        margin-right: auto;
+    }
+    /* *************************************** */
+
+    /* ... (остальные стили, не менялись) ... */
+    
+    /* Увеличение минимальной ширины для мобильной версии, чтобы карточка была длинной */
+    .price-grid .span-2 {
+        flex: 0 0 auto;
+        min-width: 250px; 
+    }
+
+    /* ... (стили для кнопки буста) ... */
+}
     </style>
 </head>
 <body>
@@ -742,7 +775,7 @@
         <div class="price-card extra-service">
             <span>Определённый лайн</span>
         </div>
-        <div class="price-card extra-service">
+        <div class="price-card extra-service span-2"> 
             <span>Игра на определённом персонаже</span>
         </div>
     </div>
