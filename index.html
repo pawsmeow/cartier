@@ -353,6 +353,115 @@
                 padding: 30px;
             }
         }
+        /* ============================
+   Адаптивные стили
+============================ */
+@media (max-width: 1024px) {
+    .section {
+        padding: 80px 5%;
+    }
+    .hero__title {
+        font-size: clamp(4rem, 10vw, 8rem);
+    }
+    .hero__subtitle {
+        font-size: 1.3rem;
+    }
+    .hero__avatar {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 5%;
+    }
+    .hero-block {
+        height: auto;
+        padding: 80px 5% 40px;
+    }
+    .hero__title {
+        font-size: clamp(3rem, 10vw, 6rem);
+    }
+    .hero__subtitle {
+        font-size: 1.2rem;
+    }
+    .hero__avatar {
+        width: 100px;
+        height: 100px;
+        margin: 20px auto;
+    }
+    .hero__cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .cta-btn {
+        width: 90%;
+        margin: 0 auto;
+        font-size: 0.95rem;
+        padding: 12px 25px;
+    }
+
+    .matte-card {
+        padding: 25px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .order-boost-card {
+        padding: 25px;
+        font-size: 1.2rem;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+    .modal-chips-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    h1, h2, h3 {
+        letter-spacing: 1px;
+    }
+    .hero__title {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+    .hero__subtitle {
+        font-size: 1rem;
+    }
+    .cta-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .hero__avatar {
+        width: 80px;
+        height: 80px;
+    }
+    .order-boost-card {
+        padding: 20px;
+        font-size: 1rem;
+    }
+    .about__text-list li {
+        font-size: 0.9rem;
+    }
+    .support-chip h3 {
+        font-size: 1rem;
+    }
+    .support-chip p {
+        font-size: 0.85rem;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -360,7 +469,7 @@
     <header class="hero-block">
         <div class="hero-content">
             <h1 class="hero__title">CARTIER</h1>
-            <p class="hero__subtitle"> • Основной лайн — EXP • Профессиональный бустер •</p>
+            <p class="hero__subtitle"> • Основной лайн — EXP • Профессиональный бустер </p>
             
                 <img class="hero__avatar" src="avatar.jpg" alt="Nemo Avatar">
             
