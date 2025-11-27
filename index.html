@@ -321,7 +321,152 @@
         .modal-cta {
             margin-top: 40px;
         }
-        
+        /* Обновленный прайс-лист */
+/* ===== Премиальный прайс-лист ===== */
+.price-section {
+    margin-top: 30px;
+}
+/* ===== Премиальный прайс-лист - исправленный ===== */
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px; /* отступы между карточками */
+    margin-top: 15px;
+}
+
+.price-card {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* расстояние между иконкой и текстом */
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: 2px solid var(--color-accent-gold);
+    background: linear-gradient(145deg, #1c1c1c, #222222);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3), 0 5px 15px rgba(212,175,55,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5), 0 10px 25px rgba(212,175,55,0.5);
+}
+
+.price-icon {
+    font-size: 1rem; /* уменьшили размер */
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.price-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.price-amount {
+    font-weight: 700;
+    font-size: 1.1rem;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.price-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-dimmed);
+}
+
+/* Дополнительные услуги */
+.extra-service {
+    flex-direction: row; /* иконка слева */
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.extra-service span {
+    margin-left: 5px;
+}
+
+/* Отступ между прайс-секциями и кнопкой */
+.modal-cta {
+    display: block;
+    margin: 30px auto 0 auto;
+}
+
+/* Мобильная версия */
+/* ===== Адаптация премиального прайс-листа ===== */
+/* ===== Прайс-лист: мобильная версия без бортиков ===== */
+@media (max-width: 768px) {
+    .price-grid {
+        grid-template-columns: 1fr; /* одна колонка */
+        gap: 12px; /* расстояние между карточками */
+    }
+
+    .price-card {
+        padding: 12px 15px;
+        gap: 6px;
+        border: none;          /* убрали бортики */
+        box-shadow: none;      /* убрали тени */
+        background: transparent; /* фон прозрачный или наследует основной фон */
+    }
+
+    .price-icon {
+        font-size: 0.9rem;
+    }
+    .price-amount {
+        font-size: 1rem;
+    }
+    .price-desc {
+        font-size: 0.85rem;
+    }
+
+    .extra-service {
+        flex-direction: row; 
+        justify-content: flex-start;
+        text-align: left;
+        padding: 10px 12px;
+    }
+    .extra-service span {
+        margin-left: 6px;
+        font-size: 0.85rem;
+    }
+
+    .modal-cta {
+        margin-top: 20px; /* отступ между карточками и кнопкой */
+    }
+}
+
+@media (max-width: 480px) {
+    .price-grid {
+        gap: 10px;
+    }
+    .price-card {
+        padding: 10px 12px;
+        gap: 5px;
+    }
+    .price-icon {
+        font-size: 0.8rem;
+    }
+    .price-amount {
+        font-size: 0.95rem;
+    }
+    .price-desc {
+        font-size: 0.8rem;
+    }
+    .extra-service span {
+        font-size: 0.8rem;
+    }
+    .modal-cta {
+        margin-top: 18px;
+    }
+}
+
+
+
+
         /*
         ==================================
         FOOTER (6)
@@ -531,28 +676,73 @@
     </section>
 
     <div id="boost-modal" class="modal">
-        <div class="modal-content matte-card">
-            <span class="modal__close">&times;</span>
-            <h3>Прайс-лист и Услуги</h3>
-            
-            <h4>Цены за Звезду:</h4>
-            <div class="modal-chips-container">
-                <span class="chip price-chip">450₸: Эпик → Миф</span>
-                <span class="chip price-chip">500₸: Миф → Миф Слава</span>
-                <span class="chip price-chip">550₸: Миф Слава → Миф Бессмертный</span>
-                <span class="chip price-chip">600₸: Миф Бессмертный+</span>
-            </div>
+  <div class="modal-content matte-card">
+    <span class="modal__close">&times;</span>
+    <h3>Прайс-лист и услуги</h3>
 
-            <h4>Дополнительные Услуги:</h4>
-            <div class="modal-chips-container">
-                <span class="chip">Совместный буст</span>
-                <span class="chip">Определённый лайн</span>
-                <span class="chip">Игра на определённом персонаже</span>
-            </div>
-            
-            <a href="https://t.me/cccaaartier" target="_blank" class="cta-btn cta-btn--primary modal-cta">Начать оформление</a>
+    <!-- Цены за звезду -->
+    <div class="price-section">
+      <h4>Цены за Звезду</h4>
+      <div class="price-grid">
+        <div class="price-card">
+          <div class="price-icon">⭐</div>
+          <div class="price-info">
+            <span class="price-amount">450₸</span>
+            <span class="price-desc">Эпик → Миф</span>
+          </div>
         </div>
+        <div class="price-card">
+          <div class="price-icon">⭐</div>
+          <div class="price-info">
+            <span class="price-amount">500₸</span>
+            <span class="price-desc">Миф → Миф Слава</span>
+          </div>
+        </div>
+        <div class="price-card">
+          <div class="price-icon">⭐</div>
+          <div class="price-info">
+            <span class="price-amount">550₸</span>
+            <span class="price-desc">Миф Слава → Миф Бессмертный</span>
+          </div>
+        </div>
+        <div class="price-card">
+          <div class="price-icon">⭐</div>
+          <div class="price-info">
+            <span class="price-amount">600₸</span>
+            <span class="price-desc">Миф Бессмертный+</span>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Дополнительные услуги -->
+    <div class="price-section">
+      <h4>Дополнительные услуги</h4>
+      <div class="price-grid">
+        <div class="price-card extra-service">
+          <div class="price-icon">✎</div>
+          <span>Совместный буст</span>
+        </div>
+        <div class="price-card extra-service">
+          <div class="price-icon">✎</div>
+          <span>Определённый лайн</span>
+        </div>
+        <div class="price-card extra-service">
+          <div class="price-icon">✎</div>
+          <span>Игра на определённом персонаже</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://t.me/cccaaartier" target="_blank" class="cta-btn cta-btn--primary modal-cta">Начать оформление</a>
+  </div>
+</div>
+
+
+    <a href="https://t.me/cccaaartier" target="_blank" class="cta-btn cta-btn--primary modal-cta">Начать оформление</a>
+  </div>
+</div>
+
 
     <footer class="footer-block">
         <a href="https://t.me/LUNOX_ML" target="_blank" class="lunox-link">
