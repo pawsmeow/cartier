@@ -252,7 +252,7 @@
             font-family: var(--font-main);
             font-size: 2rem;
             font-weight: 600;
-            color: var(--color-accent-gold);
+            color: rgb(255, 255, 255);
             text-transform: uppercase;
         }
 
@@ -262,7 +262,7 @@
             color: var(--color-accent-gold);
             font-weight: 600;
         }
-
+        
         /*
         ==================================
         MODAL WINDOW
@@ -322,21 +322,26 @@
         }
         /* Обновленный прайс-лист */
 /* ===== Премиальный прайс-лист ===== */
-.price-section {
-    margin-top: 30px;
+.mini-price-section h2 {
+    color: var(--color-accent-gold);
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: var(--font-title);
+    font-weight: 700;
 }
-/* ===== Премиальный прайс-лист - исправленный ===== */
+
 .price-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 15px; /* отступы между карточками */
-    margin-top: 15px;
+    gap: 15px;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 .price-card {
     display: flex;
     align-items: center;
-    gap: 8px; /* расстояние между иконкой и текстом */
+    gap: 10px;
     padding: 15px 20px;
     border-radius: 12px;
     border: 2px solid var(--color-accent-gold);
@@ -351,7 +356,7 @@
 }
 
 .price-icon {
-    font-size: 1rem; /* уменьшили размер */
+    font-size: 1rem;
     background: var(--gradient-gold);
     -webkit-background-clip: text;
     background-clip: text;
@@ -380,130 +385,78 @@
 
 /* Дополнительные услуги */
 .extra-service {
-    flex-direction: row; /* иконка слева */
+    flex-direction: row;
     justify-content: flex-start;
     text-align: left;
 }
 
 .extra-service span {
     margin-left: 5px;
+    font-size: 0.9rem;
 }
 
-/* Отступ между прайс-секциями и кнопкой */
-.modal-cta {
-    display: block;
-    margin: 30px auto 0 auto;
+/* Кнопка заказать буст */
+.order-boost-card {
+    display: inline-block;
+    padding: 25px 40px;
+    margin: 30px auto 0;
+    border-radius: 12px;
+    background: var(--gradient-gold); /* градиент фона */
+    color: #111111; /* контрастный цвет текста */
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(132, 204, 246, 0.74);
 }
 
-/* Мобильная версия */
-/* ===== Адаптация премиального прайс-листа ===== */
-/* ===== Прайс-лист: мобильная версия без бортиков ===== */
+.order-boost-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212,175,55,0.5);
+}
+
+
+/* ===== Адаптация price-grid на мобильных ===== */
 @media (max-width: 768px) {
     .price-grid {
-        grid-template-columns: 1fr; /* одна колонка */
-        gap: 12px; /* расстояние между карточками */
+        display: flex;           /* делаем горизонтальный флекс-контейнер */
+        flex-wrap: nowrap;       /* не переносим карточки */
+        overflow-x: auto;        /* включаем горизонтальную прокрутку */
+        gap: 10px;               /* расстояние между карточками */
+        padding-bottom: 10px;    /* небольшой отступ снизу */
     }
 
     .price-card {
-        padding: 12px 15px;
-        gap: 6px;
-        border: none;          /* убрали бортики */
-        box-shadow: none;      /* убрали тени */
-        background: transparent; /* фон прозрачный или наследует основной фон */
+        flex: 0 0 auto;          /* фиксированная ширина карточки */
+        width: 140px;            /* ширина каждой карточки */
+        padding: 10px 12px;      
+        font-size: 0.85rem;      
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
 
-    .price-icon {
-        font-size: 0.9rem;
+    .price-info {
+        font-size: 0.8rem;
     }
+
     .price-amount {
         font-size: 1rem;
     }
+
     .price-desc {
-        font-size: 0.85rem;
-    }
-
-    .extra-service {
-        flex-direction: row; 
-        justify-content: flex-start;
-        text-align: left;
-        padding: 10px 12px;
-    }
-    .extra-service span {
-        margin-left: 6px;
-        font-size: 0.85rem;
-    }
-
-    .modal-cta {
-        margin-top: 20px; /* отступ между карточками и кнопкой */
-    }
-}
-/* ===== Компактный мобильный прайс-лист ===== */
-@media (max-width: 768px) {
-    .price-grid {
-        grid-template-columns: 1fr; /* одна колонка */
-        gap: 8px; /* расстояние между карточками */
-    }
-
-    .price-card {
-        padding: 8px 10px;
-        gap: 4px;             /* расстояние между иконкой и текстом */
-        border: none;         
-        box-shadow: none;      
-        background: transparent; 
-    }
-
-    .price-icon {
-        font-size: 0.7rem;   /* маленькая иконка */
-    }
-    .price-amount {
-        font-size: 0.9rem;   /* компактная цена */
-    }
-    .price-desc {
-        font-size: 0.75rem;  /* компактное описание */
-    }
-
-    .extra-service {
-        flex-direction: row;
-        justify-content: flex-start;
-        text-align: left;
-        padding: 6px 8px;
-    }
-    .extra-service span {
-        margin-left: 4px;
         font-size: 0.75rem;
     }
 
-    .modal-cta {
-        margin-top: 15px; /* отступ между карточками и кнопкой */
-        padding: 10px 15px;
-        font-size: 0.9rem;
+    /* Дополнительные услуги в одну линию с прокруткой */
+    .extra-service {
+        flex-direction: column;
+        align-items: center;
     }
-}
-
-@media (max-width: 480px) {
-    .price-grid {
-        gap: 6px;
-    }
-    .price-card {
-        padding: 6px 8px;
-        gap: 3px;
-    }
-    .price-icon {
-        font-size: 0.65rem;
-    }
-    .price-amount {
-        font-size: 0.85rem;
-    }
-    .price-desc {
-        font-size: 0.7rem;
-    }
-    .extra-service span {
-        font-size: 0.7rem;
-    }
-    .modal-cta {
-        margin-top: 12px;
-        padding: 8px 12px;
-        font-size: 0.85rem;
+    .order-boost-card {
+        padding: 20px 30px;
+        font-size: 1rem;
     }
 }
 
@@ -649,6 +602,31 @@
         font-size: 0.85rem;
     }
 }
+/* Отступы между секциями */
+.section {
+    padding: 60px 5%; /* сверху и снизу по 60px */
+    margin: 0 auto;
+}
+
+/* Заголовки во всех секциях как в прайс-листе */
+.section h2 {
+    color: var(--color-accent-gold);
+    font-family: var(--font-title);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    background-image: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Мини-прайс секция (для совместимости) */
+.mini-price-section h2 {
+    margin-bottom: 30px;
+}
 
     </style>
 </head>
@@ -662,7 +640,7 @@
                 <img class="hero__avatar" src="avatar.jpg" alt="Nemo Avatar">
             
             <div class="hero__cta-buttons">
-                <button class="cta-btn cta-btn--primary" id="order-boost-btn">Заказать Буст</button>
+                <a href="#bust" target="_blank" class="cta-btn cta-btn--secondary">Заказать Буст</a>
                 <a href="https://t.me/+DN2ukkiNQQc0Yzgy" target="_blank" class="cta-btn cta-btn--secondary">Перейти в Чат общения</a>
                 <a href="https://www.tiktok.com/@cartiermlbb1" target="_blank" class="cta-btn cta-btn--secondary">Смотреть Трансляцию</a>
             </div>
@@ -692,7 +670,7 @@
     </section>
 
     <section class="section support-block">
-        <h2>Способы Поддержки</h2>
+        <h2>Поддержка стримера</h2>
         <div class="grid">
             <div class="chip support-chip matte-card">
                 <h3>Kaspi</h3>
@@ -708,24 +686,9 @@
             </a>
         </div>
     </section>
-
-    <section class="section order-section" style="text-align: center;">
-        <button class="order-boost-card" id="open-modal-card">
-            <div class="card-content">
-                <span class="card-text">ЗАКАЗАТЬ БУСТ</span>
-            </div>
-        </button>
-    </section>
-
-    <div id="boost-modal" class="modal">
-  <div class="modal-content matte-card">
-    <span class="modal__close">&times;</span>
-    <h3>Прайс-лист и услуги</h3>
-
-    <!-- Цены за звезду -->
-    <div class="price-section">
-      <h4>Цены за Звезду</h4>
-      <div class="price-grid">
+    <section class="section mini-price-section" id="bust">
+    <h2>Прайс-лист</h2>
+    <div class="price-grid">
         <div class="price-card">
           <div class="price-icon">⭐</div>
           <div class="price-info">
@@ -754,29 +717,28 @@
             <span class="price-desc">Миф Бессмертный+</span>
           </div>
         </div>
-      </div>
     </div>
-
+    <h2>Доп. Услуги</h2>
     <!-- Дополнительные услуги -->
-    <div class="price-section">
-      <h4>Дополнительные услуги</h4>
-      <div class="price-grid">
+    <div class="price-grid" style="margin-top: 20px;">
         <div class="price-card extra-service">
-          <div class="price-icon">✎</div>
-          <span>Совместный буст</span>
+            <span>Совместный буст</span>
         </div>
         <div class="price-card extra-service">
-          <div class="price-icon">✎</div>
-          <span>Определённый лайн</span>
+            <span>Определённый лайн</span>
         </div>
         <div class="price-card extra-service">
-          <div class="price-icon">✎</div>
-          <span>Игра на определённом персонаже</span>
+            <span>Игра на определённом персонаже</span>
         </div>
-      </div>
     </div>
-
-    <a href="https://t.me/cccaaartier" target="_blank" class="cta-btn cta-btn--primary modal-cta">Начать оформление</a>
+</section>
+<section class="section order-section" style="text-align: center;">
+    <a href="https://t.me/cccaaartier" target="_blank" class="order-boost-card cta-btn cta-btn--primary">
+        <div class="card-content">
+            <span class="card-text">ЗАКАЗАТЬ БУСТ</span>
+        </div>
+    </a>
+</section>
   </div>
 </div>
 
@@ -805,34 +767,18 @@
                 });
             }, { rootMargin: '0px', threshold: 0.2 });
             sections.forEach(section => { observer.observe(section); });
-
-
-            // Логика модального окна
-            const modal = document.getElementById('boost-modal');
-    const btnOrder = document.getElementById('order-boost-btn');
-    const btnOrderCard = document.getElementById('open-modal-card');
-    const btnClose = document.querySelector('.modal__close');
-
-    const openModal = () => {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // блокируем скролл страницы
-    };
-
-    const closeModal = () => {
-        modal.style.display = 'none';
-        document.body.style.overflow = ''; // возвращаем скролл
-    };
-
-    btnOrder.addEventListener('click', openModal);
-    btnOrderCard.addEventListener('click', openModal);
-    btnClose.addEventListener('click', closeModal);
-
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            closeModal();
-        }
-    });
         });
     </script>
+    <script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+</script>
 </body>
 </html>
